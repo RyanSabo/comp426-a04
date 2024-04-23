@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A04</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Translate Text</h1>
+        <h3>Input english text to translate to spanish</h3>
+        <input id="textInput" placeholder="Enter english">
+        <button id="submit">Submit</button>
+        <p id="response"></p>
+        <a href="index.html">Back</a>
+    </div>
+
+    <script src="translate.js"></script>
+    <script>
+        // Get elements from the DOM
+        const textInput = document.getElementById("textInput");
+        const response = document.getElementById("response");
+        const submitButton = document.getElementById("submit");
+
+        // Event listener for the submit button
+        submitButton.addEventListener("click", async () => {
+            const text = textInput.value;
+            const translatedText = await translateText(text);
+            response.textContent = translatedText;
+        });
+    </script>
+</body>
+</html>

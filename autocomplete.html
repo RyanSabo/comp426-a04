@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A04</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Autocomplete Text</h1>
+        <h3>Input sentence to autocomplete</h3>
+        <input id="textInput" placeholder="'Today I went to the...'">
+        <button id="submit">Submit</button>
+        <p id="response"></p>
+        <a href="index.html">Back</a>
+    </div>
+
+    <script src="autocomplete.js"></script>
+    <script>
+        // Get elements from the DOM
+        const textInput = document.getElementById("textInput");
+        const response = document.getElementById("response");
+        const submitButton = document.getElementById("submit");
+
+        // Event listener for the submit button
+        submitButton.addEventListener("click", async () => {
+            const text = textInput.value;
+            const autocomplete = await autocompleteText(text);
+            response.textContent = autocomplete;
+        });
+    </script>
+</body>
+</html>
